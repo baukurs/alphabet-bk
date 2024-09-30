@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktive Deutsche Alphabet-Tafel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Fonte clean */
+            text-align: center;
+            background-color: #fff; /* Fundo branco */
+            color: #333; /* Cor do texto */
+        }
+        h1 {
+            color: #ff6600; /* Laranja para o título */
+            margin-top: 20px;
+        }
+        .alphabet-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 60%;
+            border: 2px solid #333; /* Borda preta para a tabela */
+            border-radius: 10px; /* Bordas arredondadas */
+            overflow: hidden; /* Para aplicar o arredondamento */
+        }
+        .alphabet-table td {
+            border: 1px solid #333; /* Borda preta nas células */
+            padding: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #ffcc99; /* Fundo laranja claro para as células */
+            transition: background-color 0.3s;
+        }
+        .alphabet-table td:hover {
+            background-color: #ff9966; /* Laranja mais escuro ao passar o mouse */
+        }
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Deutsche Alphabet-Tafel</h1>
+    <table class="alphabet-table">
+        <tr>
+            <td onclick="playSound('A')">A</td>
+            <td onclick="playSound('B')">B</td>
+            <td onclick="playSound('C')">C</td>
+            <td onclick="playSound('D')">D</td>
+            <td onclick="playSound('E')">E</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('F')">F</td>
+            <td onclick="playSound('G')">G</td>
+            <td onclick="playSound('H')">H</td>
+            <td onclick="playSound('I')">I</td>
+            <td onclick="playSound('J')">J</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('K')">K</td>
+            <td onclick="playSound('L')">L</td>
+            <td onclick="playSound('M')">M</td>
+            <td onclick="playSound('N')">N</td>
+            <td onclick="playSound('O')">O</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('P')">P</td>
+            <td onclick="playSound('Q')">Q</td>
+            <td onclick="playSound('R')">R</td>
+            <td onclick="playSound('S')">S</td>
+            <td onclick="playSound('T')">T</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('U')">U</td>
+            <td onclick="playSound('V')">V</td>
+            <td onclick="playSound('W')">W</td>
+            <td onclick="playSound('X')">X</td>
+            <td onclick="playSound('Y')">Y</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('Z')">Z</td>
+            <td onclick="playSound('Ä')">Ä</td>
+            <td onclick="playSound('Ö')">Ö</td>
+            <td onclick="playSound('Ü')">Ü</td>
+            <td onclick="playSound('ß')">ß</td>
+        </tr>
+    </table>
+
+    <!-- Áudios -->
+    <audio id="A" src="audio/A.mp3"></audio>
+    <audio id="B" src="audio/B.mp3"></audio>
+    <audio id="C" src="audio/C.mp3"></audio>
+    <audio id="D" src="audio/D.mp3"></audio>
+    <audio id="E" src="audio/E.mp3"></audio>
+    <audio id="F" src="audio/F.mp3"></audio>
+    <audio id="G" src="audio/G.mp3"></audio>
+    <audio id="H" src="audio/H.mp3"></audio>
+    <audio id="I" src="audio/I.mp3"></audio>
+    <audio id="J" src="audio/J.mp3"></audio>
+    <audio id="K" src="audio/K.mp3"></audio>
+    <audio id="L" src="audio/L.mp3"></audio>
+    <audio id="M" src="audio/M.mp3"></audio>
+    <audio id="N" src="audio/N.mp3"></audio>
+    <audio id="O" src="audio/O.mp3"></audio>
+    <audio id="P" src="audio/P.mp3"></audio>
+    <audio id="Q" src="audio/Q.mp3"></audio>
+    <audio id="R" src="audio/R.mp3"></audio>
+    <audio id="S" src="audio/S.mp3"></audio>
+    <audio id="T" src="audio/T.mp3"></audio>
+    <audio id="U" src="audio/U.mp3"></audio>
+    <audio id="V" src="audio/V.mp3"></audio>
+    <audio id="W" src="audio/W.mp3"></audio>
+    <audio id="X" src="audio/X.mp3"></audio>
+    <audio id="Y" src="audio/Y.mp3"></audio>
+    <audio id="Z" src="audio/Z.mp3"></audio>
+    <audio id="Ä" src="audio/AE.mp3"></audio>
+    <audio id="Ö" src="audio/OE.mp3"></audio>
+    <audio id="Ü" src="audio/UE.mp3"></audio>
+    <audio id="ß" src="audio/SS.mp3"></audio>
+
+    <script>
+        function playSound(letter) {
+            document.getElementById(letter).play();
+        }
+    </script>
+</body>
+</html>
