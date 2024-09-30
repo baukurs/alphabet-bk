@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Alphabet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap" rel="stylesheet"> <!-- Importando Lexend -->
+    <style>
+        body {
+            font-family: 'Lexend', sans-serif; /* Fonte Lexend */
+            text-align: center;
+            background-color: #ffffff; /* Fundo branco */
+            color: #333; /* Cor do texto */
+            margin: 0; /* Remover margens padrão */
+            padding: 20px; /* Adicionar um pouco de padding */
+        }
+        .logo {
+            width: 100px; /* Tamanho reduzido da logo */
+            margin-bottom: 20px; /* Espaço abaixo da logo */
+        }
+        h1 {
+            color: #ff6600; /* Laranja para o título */
+            margin-top: 10px; /* Margem acima do título */
+            font-size: 32px; /* Tamanho da fonte do título */
+        }
+        .alphabet-table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 80%; /* Largura da tabela */
+            border-radius: 10px; /* Bordas arredondadas */
+            overflow: hidden; /* Para aplicar o arredondamento */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para a tabela */
+        }
+        .alphabet-table td {
+            border: 1px solid #333; /* Borda preta nas células */
+            padding: 20px;
+            font-size: 28px; /* Tamanho da fonte nas células */
+            cursor: pointer;
+            background-color: #ffcc99; /* Fundo laranja claro para as células */
+            transition: background-color 0.3s, transform 0.2s; /* Transição suave */
+        }
+        .alphabet-table td:hover {
+            background-color: #ff9966; /* Laranja mais escuro ao passar o mouse */
+            transform: scale(1.05); /* Efeito de aumentar ao passar o mouse */
+        }
+        audio {
+            display: none; /* Ocultar elementos de áudio */
+        }
+    </style>
+</head>
+<body>
+    <img src="data:image/png;base64,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" alt="Logo do Curso" class="logo"> <!-- Substitua pela URL da sua logo -->
+    <h1>Das Alphabet</h1>
+    <table class="alphabet-table">
+        <tr>
+            <td onclick="playSound('A')">A</td>
+            <td onclick="playSound('B')">B</td>
+            <td onclick="playSound('C')">C</td>
+            <td onclick="playSound('D')">D</td>
+            <td onclick="playSound('E')">E</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('F')">F</td>
+            <td onclick="playSound('G')">G</td>
+            <td onclick="playSound('H')">H</td>
+            <td onclick="playSound('I')">I</td>
+            <td onclick="playSound('J')">J</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('K')">K</td>
+            <td onclick="playSound('L')">L</td>
+            <td onclick="playSound('M')">M</td>
+            <td onclick="playSound('N')">N</td>
+            <td onclick="playSound('O')">O</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('P')">P</td>
+            <td onclick="playSound('Q')">Q</td>
+            <td onclick="playSound('R')">R</td>
+            <td onclick="playSound('S')">S</td>
+            <td onclick="playSound('T')">T</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('U')">U</td>
+            <td onclick="playSound('V')">V</td>
+            <td onclick="playSound('W')">W</td>
+            <td onclick="playSound('X')">X</td>
+            <td onclick="playSound('Y')">Y</td>
+        </tr>
+        <tr>
+            <td onclick="playSound('Z')">Z</td>
+            <td onclick="playSound('Ä')">Ä</td>
+            <td onclick="playSound('Ö')">Ö</td>
+            <td onclick="playSound('Ü')">Ü</td>
+            <td onclick="playSound('ß')">ß</td>
+        </tr>
+    </table>
+
+    <!-- Áudios -->
+    <audio id="A" src="audio/A.mp3"></audio>
+    <audio id="B" src="audio/B.mp3"></audio>
+    <audio id="C" src="audio/C.mp3"></audio>
+    <audio id="D" src="audio/D.mp3"></audio>
+    <audio id="E" src="audio/E.mp3"></audio>
+    <audio id="F" src="audio/F.mp3"></audio>
+    <audio id="G" src="audio/G.mp3"></audio>
+    <audio id="H" src="audio/H.mp3"></audio>
+    <audio id="I" src="audio/I.mp3"></audio>
+    <audio id="J" src="audio/J.mp3"></audio>
+    <audio id="K" src="audio/K.mp3"></audio>
+    <audio id="L" src="audio/L.mp3"></audio>
+    <audio id="M" src="audio/M.mp3"></audio>
+    <audio id="N" src="audio/N.mp3"></audio>
+    <audio id="O" src="audio/O.mp3"></audio>
+    <audio id="P" src="audio/P.mp3"></audio>
+    <audio id="Q" src="audio/Q.mp3"></audio>
+    <audio id="R" src="audio/R.mp3"></audio>
+    <audio id="S" src="audio/S.mp3"></audio>
+    <audio id="T" src="audio/T.mp3"></audio>
+    <audio id="U" src="audio/U.mp3"></audio>
+    <audio id="V" src="audio/V.mp3"></audio>
+    <audio id="W" src="audio/W.mp3"></audio>
+    <audio id="X" src="audio/X.mp3"></audio>
+    <audio id="Y" src="audio/Y.mp3"></audio>
+    <audio id="Z" src="audio/Z.mp3"></audio>
+    <audio id="Ä" src="audio/AE.mp3"></audio>
+    <audio id="Ö" src="audio/OE.mp3"></audio>
+    <audio id="Ü" src="audio/UE.mp3"></audio>
+    <audio id="ß" src="audio/SS.mp3"></audio>
+
+    <script>
+        function playSound(letter) {
+            document.getElementById(letter).play();
+        }
+    </script>
+</body>
+</html>
+
